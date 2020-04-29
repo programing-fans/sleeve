@@ -1,0 +1,21 @@
+function shortage(stock) {
+    if(stock < 10 && stock > 0){
+        return true
+    }
+    else{
+        false
+    }
+}
+
+function online(online){
+    console.log(online)
+    if (online === false){
+        return false
+    }
+    return true
+}
+
+module.exports={
+    shortage:shortage,
+    online:online
+}

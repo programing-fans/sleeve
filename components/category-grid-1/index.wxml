@@ -1,0 +1,12 @@
+<view class="container">
+<!--    <view class="outer-container">-->
+        <view class="inner-container">
+            <block wx:for="{{categories}}">
+                <view class="grid-item">
+                    <image src="{{item.img}}"></image>
+                    <text>{{item.title}}</text>
+                </view>
+            </block>
+        </view>
+<!--    </view>-->
+</view>

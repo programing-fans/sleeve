@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "s-cart-item": "/components/cart-item/index",
+    "s-checkbox": "/components/checkbox/index"
+  }
+}

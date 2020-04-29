@@ -1,0 +1,6 @@
+
+<view>
+    <block wx:for="">
+        <view ></view>
+    </block>
+</view>

@@ -1,0 +1,104 @@
+
+.sleeve {
+    font-family: sleeve !important;
+    font-size: 24rpx;
+    font-style: normal;
+    color: #157658 !important;
+}
+
+.description{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding:34rpx 30rpx 26rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.description .left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description .title{
+    /*margin-bottom:rpx;*/
+}
+
+.description .subtitle{
+    color: #999999;
+    font-size: 28rpx;
+    font-weight: 400;
+    margin-top:40rpx;
+    margin-bottom: 16rpx;
+}
+
+.price-row{
+    display: flex;
+    align-items: baseline;
+    /*height: 50rpx;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+
+.discount-price{
+    margin-left: 20rpx;
+    margin-right: 80rpx;
+}
+
+.discount-tag{
+    position: relative !important;
+    bottom: 4rpx;
+    width: 50rpx;
+    border-radius:20rpx !important;
+}
+
+.l-price-unit{
+    margin-right: 14rpx !important;
+}
+
+.l-tag{
+    margin-right:6rpx !important;
+}
+
+.tags{
+    display: flex;
+}
+
+.description .right{
+    margin-left:20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 78rpx;
+    height: 120rpx;
+    border-left: 2px dashed #F5F5F5;
+}
+
+.right .inner{
+    width: 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120rpx;
+    background-color: #DCEBE6;
+}
+
+.inner text{
+    font-size:20rpx;
+    color: #157658;
+}
+
+button::after{
+    border:none;
+}
+
+.inner button{
+    background-color: transparent;
+    border: none !important;
+    position: absolute;
+    width:40rpx;
+    height: 100rpx;
+}

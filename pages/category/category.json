@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "s-sub-category": "/components/sub-category/index"
+  },
+  "backgroundColor": "#fff",
+  "disableScroll": true
+}

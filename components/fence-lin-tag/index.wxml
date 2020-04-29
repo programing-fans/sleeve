@@ -1,0 +1,36 @@
+<wxs module="c" src="../../miniprogram_npm/lin-ui/filter/classnames.wxs"></wxs>
+<wxs module="tag" src="../../wxs/tag.wxs"></wxs>
+<view class="container">
+        <view class="title">{{fence.key}}</view>
+        <block wx:key="1" wx:for="{{fence.values}}">
+
+            <l-tag size="large"
+                    class="tag" wx:if="{{item.status == 'forbidden' || item.status == 'waiting'}}"
+                   data-col-index="{{index}}"
+                   mark:colIndex="{{index}}"
+                   l-class="{{item.status}}"
+                   name="{{item}}"
+                   image="{{tag.skuImg(item.status, fence.sketchImgs, index)}}"
+                   l-image-class="tag-img"
+                   bind:lintap="onOneChoose">
+                {{item.value}}
+            </l-tag>
+
+            <view  class="tag-view" wx:if="{{item.status == 'selected'}}">
+                <l-tag wx:if="{{item.status=='selected'}}"
+                        size="large"
+                        data-col-index="{{index}}"
+                        l-class="{{item.status}}"
+                        name="{{item}}"
+                       image="{{tag.skuImg(item.status, fence.sketchImgs, index)}}"
+                       l-image-class="tag-img"
+                       bind:lintap="onOneChoose">
+                    {{item.value}}
+                </l-tag>
+            </view>
+        </block>
+    <view class="hr"></view>
+</view>
+
+<!--image="{{tag.skuImg(item.status, fence.sketchImgs, index)}}"-->
+<!--l-image-class="tag-img"-->

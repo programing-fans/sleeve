@@ -1,0 +1,8 @@
+<view bind:tap="onTap" class="container">
+<!--    <view class="space-container">-->
+        <view class="inner-container">
+            <image src="{{image}}" mode="aspectFit" class="img" wx:if="{{image}}"></image>
+            <text>{{text}}</text>
+        </view>
+<!--    </view>-->
+</view>

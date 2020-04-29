@@ -1,0 +1,40 @@
+.total-class{
+    border: 3rpx solid #157658 !important;
+    height:48rpx !important;
+    /*height: 36rpx !important;*/
+}
+
+/*.selector-container .text {*/
+/*    color: #555;*/
+/*    font-size: 24rpx;*/
+/*}*/
+
+.input-size {
+    min-height: 48rpx !important;
+    line-height: 48rpx !important;
+}
+
+.all-background{
+    background-color: transparent !important;
+}
+
+.font-color{
+    color: #157658 !important;
+}
+
+.symbol-selector text{
+    /*display: inline-flex;*/
+    /*background-color: red !important;*/
+    /*line-height: 46rpx !important;*/
+}
+
+.count-show {
+    /*background-color: transparent !important;*/
+    /*color: #333 !important;*/
+    /*size: 24rpx !important;*/
+}
+
+.symbol-selector {
+    color: #333333 !important;
+}
+

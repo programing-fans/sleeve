@@ -1,0 +1,35 @@
+/* components/spec/index.wxss */
+.container{
+    /*padding: 30rpx;*/
+    color: #555;
+}
+
+.title{
+    color:#555555;
+    font-size:24rpx;
+    margin-top: 28rpx;
+    margin-bottom: 28rpx;
+}
+
+
+
+.hr{
+    /*margin-top: 30rpx;*/
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
+}
+
+
+.row-container{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tag{
+    margin-bottom:30rpx;
+    margin-right: 20rpx ;
+}
+

@@ -1,0 +1,7 @@
+<l-price value="{{price}}"
+         color="#157658"
+         unit-size="32"
+         autofix="{{true}}"
+         count-size="44"
+         l-unit-class="l-price-unit">
+</l-price>

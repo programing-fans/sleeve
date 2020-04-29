@@ -1,0 +1,33 @@
+function showTipPlease(isIntact, noSpec){
+    // noSpec 表示商品无规格（只有一个单品）
+
+    if(noSpec){
+        return false
+    }
+    if(!isIntact && !noSpec){
+        return true
+    }
+    return false
+}
+
+// function showTipPending(isIntact, noSpec) {
+//     if(noSpec){
+//         return false
+//     }
+//     if()
+// }
+
+function showTipSkuStr(isIntact, noSpec){
+    if(noSpec){
+        return false
+    }
+    if(isIntact && !noSpec){
+        return true
+    }
+    return false
+}
+
+module.exports={
+    showTipPlease:showTipPlease,
+    showTipSkuStr:showTipSkuStr
+}

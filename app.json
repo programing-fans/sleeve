@@ -1,0 +1,98 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/category/category",
+    "pages/my/my",
+    "pages/cart/cart",
+    "pages/search/index",
+    "pages/spu-list/spu-list",
+    "pages/coupon/coupon",
+    "pages/theme/theme",
+    "pages/theme-spu-list/theme-spu-list",
+    "pages/order/order",
+    "pages/my-coupon/my-coupon",
+    "pages/my-order/my-order",
+    "pages/order-detail/order-detail",
+    "pages/pay-success/pay-success",
+    "pages/test/test",
+    "pages/about/about",
+    "pages/about-course/about-course"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "风袖",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 100
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#333333",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "imgs/tabbar/home@dis.png",
+        "selectedIconPath": "imgs/tabbar/home.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "imgs/tabbar/category@dis.png",
+        "selectedIconPath": "imgs/tabbar/category.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "imgs/tabbar/cart@dis.png",
+        "selectedIconPath": "imgs/tabbar/cart.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "imgs/tabbar/my@dis.png",
+        "selectedIconPath": "imgs/tabbar/my.png"
+      }
+    ]
+  },
+  "networkTimeout": {},
+  "navigateToMiniProgramAppIdList": [
+    "wxdcec05d9a27f9064"
+  ],
+  "usingComponents": {
+    "l-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "l-price": "/miniprogram_npm/lin-ui/price/index",
+    "l-counter": "/miniprogram_npm/lin-ui/counter/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "s-fence": "/components/fence/index",
+    "l-grid": "/miniprogram_npm/lin-ui/grid/index",
+    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
+    "l-status-show": "/miniprogram_npm/lin-ui/status-show/index",
+    "s-spu-preview": "/components/spu-preview/index",
+    "s-spu-preview-r": "/components/spu-preview-r/index",
+    "s-spu-preview-h": "/components/spu-preview-h/index",
+    "s-counter": "/components/counter/index",
+    "l-badge": "/miniprogram_npm/lin-ui/badge/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "l-slide-view": "/miniprogram_npm/lin-ui/slide-view/index",
+    "l-toast": "/miniprogram_npm/lin-ui/toast/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "l-list": "/miniprogram_npm/lin-ui/list/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
+    "l-countdown": "/miniprogram_npm/lin-ui/countdown/index",
+    "s-order-sku-item": "/components/order-sku-item/index",
+    "s-coupon": "/components/coupon/index",
+    "s-empty": "/components/empty/index",
+    "s-empty-screen": "/components/empty-screen/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

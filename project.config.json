@@ -1,0 +1,232 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "",
+	"projectname": "sleeve",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 24,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
+					"query": "pid=10",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/category/category",
+					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/theme/theme",
+					"pathName": "pages/theme/theme",
+					"query": "tname=t-1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/theme/theme?diana",
+					"pathName": "pages/theme/theme",
+					"query": "tname=t-3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/theme?camille",
+					"pathName": "pages/theme/theme",
+					"query": "tname=t-5",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/coupon/coupon",
+					"pathName": "pages/coupon/coupon",
+					"query": "type=spu_category&cid=32",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/cart/index",
+					"pathName": "pages/cart/index",
+					"query": "type=spu_category&cid=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "type=spu_category&cid=32",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "pid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "pid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my-coupon/my-coupon",
+					"pathName": "pages/my-coupon/my-coupon",
+					"query": "pid=2",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "pages/my-order/my-order",
+					"pathName": "pages/my-order/my-order",
+					"query": "key=0",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "pages/my-order/my-order",
+					"pathName": "pages/my-order/my-order",
+					"query": "key=0",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "pages/order-detail/order-detail",
+					"pathName": "pages/order-detail/order-detail",
+					"query": "oid=221",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/search/index",
+					"pathName": "pages/search/index",
+					"query": "key=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/pay-success/pay-success",
+					"pathName": "pages/pay-success/pay-success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "pages/spu-list/spu-list",
+					"pathName": "pages/spu-list/spu-list",
+					"query": "cid=3&type=root_category",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/index",
+					"pathName": "pages/cart/index",
+					"query": "cid=3&type=root_category",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/index",
+					"pathName": "pages/search/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/theme/theme",
+					"pathName": "pages/theme/theme",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about/about",
+					"pathName": "pages/about/about",
+					"query": "pid=10",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about-course/about-course",
+					"pathName": "pages/about-course/about-course",
+					"query": "pid=10",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
+					"scene": null
+				}
+			]
+		}
+	}
+}

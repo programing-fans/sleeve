@@ -1,0 +1,60 @@
+<l-loadmore show="{{true}}" l-class="load-more" l-end-class="load-more-end" end-text="- Jackeason作品 -"
+            type="{{loadingType}}" loading-text="努力加载中...">
+    <view slot="content">
+        <view>
+            <image bind:load="onLoadImg"
+                   style="height:{{h}}rpx;width: {{w}}rpx;"
+                   data-tname="t-1" bind:tap="goToTheme"
+                   wx:if="{{themeA.online}}"
+                   class="top-theme"
+                   src="{{themeA.entrance_img}}"></image>
+
+
+            <swiper class="swiper" indicator-dots="{{true}}"
+                    indicator-active-color="#157658"
+                    autoplay="{{true}}"
+                    circular="{{true}}"
+                    >
+                <block wx:for="{{bannerB.items}}" wx:key="index">
+                    <swiper-item>
+                        <image data-keyword="{{item.keyword}}" data-type="{{item.type}}" bind:tap="onGotoBanner" class="swiper" src="{{item.img}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+
+            <s-category-grid categories="{{gridCategory}}" class="category-gird"></s-category-grid>
+
+
+            <view hover-class="react-hover" hover-stay-time="300">
+                <image data-aname="a-2" wx:if="{{activityD.online}}" bind:tap="onGoToCoupons" class="coupon"
+                       src="{{activityD.entrance_img}}"></image>
+            </view>
+
+
+            <s-spu-scroll wx:if="{{themeE.online}}"
+                          l-class="arrival"
+                          theme="{{themeE}}"
+                          spu-list="{{themeESpuList}}">
+
+            </s-spu-scroll>
+
+
+            <image data-tname="t-3" class="quality" bind:tap="goToTheme" src="{{themeF.entrance_img}}"></image>
+
+
+            <s-hot-list title-img="{{bannerG.img}}" items="{{bannerG.items}}"></s-hot-list>
+
+
+            <image data-tname="t-4" class="fashion" bind:tap="goToTheme" src="{{themeH.entrance_img}}"></image>
+
+
+            <view class="spu-bottom">
+                <image class="title-spu-bottom" src="/imgs/home/title@interest.png"></image>
+                <l-water-flow bind:item="onItemTap" generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+            </view>
+
+        </view>
+    </view>
+</l-loadmore>
+
+<l-loading></l-loading>

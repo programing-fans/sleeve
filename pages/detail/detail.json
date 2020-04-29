@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "s-realm": "/components/realm/index",
+    "s-spu-description": "/components/spu-description/index",
+    "s-coupon-mini": "/components/coupon-mini/index",
+    "s-tabbar": "/components/tab-bar/index",
+    "s-sale-explain": "/components/sale-explain/index"
+  }
+}

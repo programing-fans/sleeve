@@ -1,0 +1,110 @@
+
+page {
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 2rpx solid #f3f3f3;
+}
+
+
+.search-btn {
+    background-color: #f1f1f1 !important;
+    color: #C4C9D2 !important;
+    font-size: 24rpx !important;
+    font-weight: 400 !important;
+    border-radius: 4rpx !important;
+}
+
+.hr {
+    margin-top: 10rpx;
+
+    width: 100%;
+    height: 2rpx;
+    background-color: #f3f3f3;
+}
+
+.l-left {
+    /*width: 200rpx !important;*/
+    /*height:100% !important;*/
+    /*color: #34bfa3 !important;*/
+    /*height: 800rpx !important;*/
+    /*border: 2rpx solid #f3f3f3 !important;*/
+    /*background: red !important;*/
+}
+
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.segment-item {
+    color: #666666 !important;
+    /*height: 120rpx !important;*/
+    /*滚动条不贴边*/
+    background-color: #ffffff !important;
+    font-size: 26rpx !important;
+    /*border-right: 2rpx solid #f3f3f3 !important;*/
+    /*border-right-color: #f3f3f3 !important;*/
+}
+
+.segment-item-active {
+    color: #157658 !important;
+    font-size: 26rpx !important;
+}
+
+
+.right {
+    /*width: 550rpx;*/
+    /*750-160-2 = 590*/
+    width:588rpx;
+    /*width: 100%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: #45526b;*/
+    border-left: 2rpx solid #f3f3f3;
+}
+
+.l-seg-line {
+    width: 8rpx !important;
+    height: 40rpx !important;
+    background-color: #157658 !important;
+    border-radius: 0 !important;
+}
+
+.banner {
+    width: 510rpx;
+    height: 160rpx;
+    background-color: #C6D7D2;
+    margin-top: 16rpx;
+    margin-bottom: 28rpx;
+}
+
+
+.title{
+    font-size:24rpx;
+    color: #999999;
+    margin-bottom:30rpx;
+}
+
+

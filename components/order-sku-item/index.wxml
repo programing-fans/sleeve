@@ -1,0 +1,19 @@
+<view class="container l-class">
+    <image mode="aspectFit" src="{{orderItem.img}}" class="left"></image>
+    <view class="middle">
+        <text class="title hidden-text ">{{orderItem.title}}</text>
+        <!--                <text class="title hidden-text ">无误无误无误无误无误无误无误无误无误无误无误无误无误无无误无误无误无误无误无误无误无误无误无误无误无误无误</text>-->
+        <view class="specs-container">
+            <view wx:if="{{specValuesText}}" class="specs">
+                <text>{{specValuesText}}</text>
+                <!--                            <text>无误无误无误无误无误无误无误无误无误无误无误无误无误</text>-->
+            </view>
+        </view>
+    </view>
+    <view class="right">
+        <l-price value="{{orderItem.finalPrice || orderItem.final_price}}"
+                 color="#333333">
+        </l-price>
+        <text>x {{orderItem.count}}</text>
+    </view>
+</view>

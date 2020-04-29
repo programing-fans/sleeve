@@ -1,0 +1,51 @@
+<!--<scroll-view style="height:{{scrollHeight}}rpx" scroll-y="true" class="container">-->
+<view wx:if="{{!isEmpty}}" class="container">
+    <block wx:for="{{cartItems}}">
+        <s-cart-item bind:overflow="onOverflow" bind:itemdelete="onDeleteItem" bind:countfloat="onCountFloat" bind:itemcheck="onSingleCheck" cart-item="{{item}}">
+        </s-cart-item>
+    </block>
+</view>
+
+<view wx:if="{{!isEmpty}}" class="total-container">
+    <view class="data-container">
+        <view class="checkbox-container">
+            <s-checkbox bind:check="onCheckAll" checked="{{allChecked}}"></s-checkbox>
+            <text>全选</text>
+        </view>
+        <view class="price-container">
+            <text>合计</text>
+            <l-price value="{{totalPrice}}"
+                     color="#157658"
+                     count-size="32"
+                     unit-size="32">
+            </l-price>
+        </view>
+    </view>
+    <view bind:tap="onSettle" class="settlement-btn {{totalSkuCount===0?'disabled':''}}">
+        <text>结算 ( {{totalSkuCount}} )</text>
+    </view>
+</view>
+
+<view class="empty-container" wx:if="{{isEmpty}}">
+    <s-empty showBtn show text="购物车空空的，去逛逛吧" btn-text="去逛逛"></s-empty>
+</view>
+
+<l-loadmore show type="end" end-text="- Jackeason作品 -">
+    <view slot='content' class="for-you-container">
+        <view class="title">
+            <text>- 热门推荐 -</text>
+        </view>
+        <view class="for-you-spu">
+            <l-water-flow bind:item="onItemTap" generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+        </view>
+    </view>
+</l-loadmore>
+<view style="height: 100rpx"></view>
+
+<!--<l-status-show-->
+<!--        bind:lintap="onGoToHome"-->
+<!--        l-button-class="status-btn"-->
+<!--        type="cart"-->
+<!--        image="/components/imgs/empty.png"-->
+<!--        show="{{isEmpty}}">-->
+<!--</l-status-show>-->

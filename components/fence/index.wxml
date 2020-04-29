@@ -1,0 +1,31 @@
+<wxs module="c" src="../../miniprogram_npm/lin-ui/filter/classnames.wxs"></wxs>
+<wxs module="tag" src="../../wxs/tag.wxs"></wxs>
+<view class="container">
+    <view class="title">{{fence.key}}</view>
+    <view class="row-container">
+        <block wx:key="1" wx:for="{{fence.values}}">
+            <s-tag-selected bind:lintap="onOneChoose" class="tag" wx:if="{{item.status==='selected'?true:false}}"
+                            status="{{item.status}}"
+                            text="{{item.value}}"
+                            data-col-index="{{index}}"
+                            name="{{item}}"
+                            image="{{item.skuImg}}">
+<!--                            image="{{tag.skuImg(item.status, fence.sketchImgs, index)}}">-->
+
+            </s-tag-selected>
+            <s-tag class="tag" wx:else status="{{item.status}}"
+                   bind:lintap="onOneChoose"
+                   text="{{item.value}}"
+                   data-col-index="{{index}}"
+                   name="{{item}}"
+                   image="{{item.skuImg}}">
+
+            </s-tag>
+
+        </block>
+    </view>
+    <view class="hr"></view>
+</view>
+
+<!--image="{{tag.skuImg(item.status, fence.sketchImgs, index)}}"-->
+<!--l-image-class="tag-img"-->

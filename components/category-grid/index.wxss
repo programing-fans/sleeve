@@ -1,0 +1,41 @@
+/* components/category-grid/index.wxss */
+@import "../wxss/sleeve.wxss";
+
+.container {
+    height: 300rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    background-color: #ffffff;
+}
+
+.inner-container {
+    width: 730rpx;
+    height: 300rpx;
+    border: 1px dashed #DCEBE6;
+}
+
+
+.grid-item {
+    width: 200rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-item image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.grid-item text {
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    color: #333333;
+}
+
+
+

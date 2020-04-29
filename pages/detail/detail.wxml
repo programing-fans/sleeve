@@ -1,0 +1,78 @@
+
+<wxs module="r" src="../../wxs/realm.wxs" ></wxs>
+<scroll-view style="height:{{scrollHeight}}rpx" scroll-y="true" class="container">
+
+
+    <swiper class="top"
+            autoplay="{{true}}"
+            indicator-dots="{{true}}">
+        <block wx:for="{{spu.spu_img_list}}">
+            <swiper-item>
+                <image mode="aspectFill" class="top" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+
+    <s-spu-description spu="{{spu}}"></s-spu-description>
+
+
+    <view bind:tap="onGoToCouponCenter" class="coupon-container" wx:if="{{coupons.length!=0}}">
+        <view class="coupon-left">
+            <block wx:for="{{coupons}}">
+                <s-coupon-mini text="{{item.title}}"></s-coupon-mini>
+            </block>
+        </view>
+        <view class="coupon-right">
+            <text>立即领取</text>
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
+    </view>
+
+
+    <view bind:tap="onAddToCart" wx:if="{{!noSpec}}" class="spec-container">
+        <view class="spec">
+            <text wx:if="{{r.showTipPlease(specChosen.intactPending, spec.Chosen.noSpec)}}">请选择：</text>
+            <text wx:else>已选：</text>
+            <text wx:if="{{r.showTipPlease(specChosen.intactPending, spec.Chosen.noSpec)}}" class="sku-value-str">{{specChosen.waitingSpuKeyStr}}
+            </text>
+            <text wx:else class="sku-value-str">{{specChosen.skuValueStr}}</text>
+        </view>
+        <view class="coupon-right">
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
+    </view>
+
+
+    <view class="explain">
+        <s-sale-explain texts="{{saleExplain}}" is-test="{{spu.is_test}}"></s-sale-explain>
+    </view>
+
+
+    <view class="detail-img-container">
+        <block wx:for="{{spu.spu_detail_img_list}}">
+            <image class="detail-img"
+                   src="{{item.img}}"
+                   bind:load="onLoadImg"
+                   style="height:{{h}}rpx;width: {{w}}rpx;"></image>
+        </block>
+    </view>
+
+
+</scroll-view>
+
+
+
+
+<s-tabbar class="tabbar"
+          cart-item-count = "{{cartItemCount}}"
+          bind:gotohome="onGoToHome"
+          bind:gotocart="onGoToCart"
+          bind:addtocart="onAddToCart"
+          bind:buy="onBuy">
+</s-tabbar>
+<l-popup bind:lintap="onCloseRealm" content-align="bottom" show="{{showRealm}}">
+    <s-realm bind:specchange="onSpecChange" bind:shopping="onShopping" order-way="{{orderWay}}" show="{{showRealm}}" spu="{{spu}}"></s-realm>
+</l-popup>
+<l-toast></l-toast>
+<l-loading></l-loading>

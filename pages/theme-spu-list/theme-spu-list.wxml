@@ -1,0 +1,23 @@
+<view>
+    <image style="height:{{h}}rpx;width:{{w}}rpx;" bind:load="onLoadImg" class="top-img" src="{{topImg}}">
+
+    </image>
+    <view wx:if="{{descriptions.length !==0 }}" class="description-container">
+        <block wx:for="{{descriptions}}" wx:key="index">
+            <text class="description">{{item}}</text>
+        </block>
+    </view>
+    <view slot="content" class="spu-bottom">
+        <l-water-flow bind:item="onItemTap" generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+    </view>
+
+<!--    <view class="logo-container">-->
+<!--        <image class="logo" src="/imgs/logo.png"></image>-->
+<!--    </view>-->
+    <view class="logo-container">
+        <image class="logo" src="http://i2.sleeve.7yue.pro/logoxxx.png"></image>
+    </view>
+
+    <s-empty-screen></s-empty-screen>
+
+</view>

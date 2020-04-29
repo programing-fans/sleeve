@@ -1,0 +1,58 @@
+function mainPrice(price, discountPrice) {
+    if (!discountPrice) {
+        return {
+            display: true,
+            price:price
+        }
+    } else {
+        return {
+            display: true,
+            price: discountPrice
+        }
+    }
+}
+
+function slashedPrice(price, discountPrice) {
+    if (discountPrice) {
+        return {
+            display: true,
+            price:price
+        }
+    } else {
+        return {
+            display: false,
+            price: null
+        }
+    }
+}
+
+function mainPrice2(spu, sku) {
+    if(!spu && !sku){
+        return
+    }
+    if(!sku){
+        return mainPrice(spu.price, spu.discount_price)
+    }
+    else{
+        return mainPrice(sku.price, sku.discount_price)
+    }
+}
+
+function slashedPrice2(spu, sku){
+    if(!spu && !sku){
+        return
+    }
+    if(!sku){
+        return slashedPrice(spu.price, spu.discount_price)
+    }
+    else{
+        return slashedPrice(sku.price, sku.discount_price)
+    }
+}
+
+module.exports = {
+    mainPrice: mainPrice,
+    slashedPrice: slashedPrice,
+    mainPrice2:mainPrice2,
+    slashedPrice2:slashedPrice2
+}

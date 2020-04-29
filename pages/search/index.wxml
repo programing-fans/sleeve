@@ -1,0 +1,65 @@
+<view class="header">
+    <l-search-bar
+            value="{{q}}"
+            l-class="input"
+            placeholder="搜索单品"
+            maxlength="9"
+            bind:linconfirm="onSearch"
+            bind:lincancel="onCancel"
+            bg-color="#f1f1f1">
+    </l-search-bar>
+</view>
+<view class="container">
+    <view wx:if="{{!search}}">
+
+        <view wx:if="{{historyTags.length !== 0}}" class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>历史搜索</text>
+                <view style="flex:1"></view>
+                <view bind:tap="onDeleteHistory">
+                    <l-icon l-class="icon" name="delete" color="#999999" size="32"></l-icon>
+                </view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{historyTags}}">
+                    <l-tag name="{{item}}" bind:lintap="onSearch" select="{{item.highlight}}" l-class="tag"
+                           l-select-class="tag-selected">
+                        {{item}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+        <view class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+                <view style="flex:1"></view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}">
+                    <l-tag name="{{item.title}}" bind:lintap="onSearch" select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected">
+                        {{item.title}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{search}}">
+        <l-loadmore show="{{bottomLoading}}" end-text="- Jackeason作品 -" type="{{loadingType}}" loading-text="努力加载中...">
+            <view slot="content" hidden="{{!search}}" class="spu-bottom">
+                <block wx:for="{{items}}">
+                    <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
+                </block>
+            </view>
+        </l-loadmore>
+    </view>
+    <view class="loading">
+        <l-loading></l-loading>
+    </view>
+    <view class="empty">
+        <s-empty></s-empty>
+    </view>
+</view>
+

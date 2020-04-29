@@ -1,0 +1,36 @@
+/* components/sku-tag/index.wxss */
+
+.container{
+    height: 60rpx;
+    box-sizing: border-box;
+    border:2rpx solid #157658;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rpx;
+}
+
+.inner-container{
+    height: 100%;
+    padding-left:15rpx;
+    padding-right:15rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #157658;
+}
+
+.inner-container text{
+    font-size: 24rpx;
+    color: #ffffff;
+}
+
+.img{
+    display: flex;
+    width:44rpx;
+    height: 44rpx;
+    margin-right: 10rpx;
+}
+
+
+

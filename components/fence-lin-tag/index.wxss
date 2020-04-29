@@ -1,0 +1,104 @@
+/* components/spec/index.wxss */
+.container{
+    /*padding: 30rpx;*/
+    color: #555;
+}
+
+.title{
+    color:#555555;
+    font-size:24rpx;
+    margin-top: 28rpx;
+    margin-bottom: 28rpx;
+}
+
+.tag{
+    /*margin-top: 28rpx !important;*/
+    /*margin-bottom:20rpx ;*/
+    /*margin-right: 20rpx;*/
+    /*m:0 !important;*/
+}
+
+.forbidden{
+    /*margin-top:28rpx !important;*/
+    box-sizing: border-box !important;
+    margin-bottom:30rpx !important;
+    margin-right: 20rpx !important;
+    
+    border: 2rpx dashed #bbb !important;
+    border-radius: 0 !important;
+    color: #bbb !important;
+    background-color: #fff !important;
+    height: 56rpx !important;
+    font-size:24rpx !important;
+}
+
+.waiting{
+    /*margin-top:28rpx !important;*/
+    box-sizing: border-box !important;
+    /*padding-left:0 !important;*/
+    margin-bottom:30rpx !important;
+    margin-right: 20rpx !important;
+    
+    border-radius: 0 !important;
+    background-color: #fff !important;
+    border-color: #333 !important;
+    color: #333 !important;
+    height: 56rpx !important;
+    font-size:24rpx !important;
+}
+
+/*.selected{*/
+/*    !*margin-top:28rpx !important;*!*/
+/*    margin-bottom:30rpx !important;*/
+/*    margin-right: 20rpx !important;*/
+
+/*    border-radius: 0 !important;*/
+/*    background-color: #157658 !important;*/
+/*    border-color: #333 !important;*/
+/*    color: #ffffff !important;*/
+/*    height: 56rpx !important;*/
+/*    font-size:24rpx !important;*/
+/*}*/
+
+.selected{
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+    background-color: #157658 !important;
+    border-color: #157658 !important;
+    height: 48rpx !important;
+    margin: 2rpx !important;
+    font-size:24rpx !important;
+}
+
+.tag-view{
+    box-sizing: border-box;
+    /*margin-top:28rpx ;*/
+    height: 56rpx !important;
+    margin-bottom:30rpx;
+    margin-right: 20rpx;
+    
+    border: 2rpx solid #157658;
+    display: inline-block;
+}
+
+.tag-img{
+    width:46rpx !important;
+    display: flex !important;
+    height:46rpx !important;
+}
+
+/*.tag-img-selected{*/
+/*    display: flex !important;*/
+/*    width:50rpx !important;*/
+/*    height: 48rpx !important;*/
+/*}*/
+
+.hr{
+    /*margin-top: 30rpx;*/
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
+}
+
+

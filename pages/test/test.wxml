@@ -1,0 +1,22 @@
+<l-segment height="500" scrollable
+                   bind:linchange="changeTabs"
+                   even="{{false}}"
+                   placement="left" l-class="aaa" item-height="100">
+          <l-segment-item tab="客厅" key="one" />
+          <l-segment-item tab="卧室" key="two" />
+          <l-segment-item tab="厨房1" key="1" />
+          <l-segment-item tab="厨房2" key="2" />
+          <l-segment-item tab="厨房3" key="3" />
+          <l-segment-item tab="厨房4" key="4" />
+          <l-segment-item tab="厨房5" key="5" />
+          <l-segment-item tab="厨房6" key="6" />
+          <l-segment-item tab="厨房7" key="7" />
+          <l-segment-item tab="厨房8" key="8" />
+          <l-segment-item tab="厨房9" key="9" />
+          <l-segment-item tab="厨房10" key="10" />
+          <l-segment-item tab="厨房11" key="11" />
+          <l-segment-item tab="厨房12" key="12" />
+          <l-segment-item tab="厨房13" key="13" />
+          <l-segment-item tab="厨房14" key="14" />
+          <l-segment-item tab="厨房15" key="15" />
+</l-segment>

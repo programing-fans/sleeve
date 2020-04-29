@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "l-message":"/miniprogram_npm/lin-ui/message/index"
+  }
+}

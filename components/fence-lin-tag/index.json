@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "l-tag": "/miniprogram_npm/lin-ui/tag/index"
+  }
+}

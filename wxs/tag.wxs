@@ -1,0 +1,10 @@
+var skuImg = function (itemStatus, skuImgs, index) {
+    if(!skuImgs || skuImgs.length === 0){
+        return null
+    }
+    return skuImgs[index]
+};
+
+module.exports = {
+    skuImg:skuImg
+}

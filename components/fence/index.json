@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "s-tag": "../sku-tag/index",
+    "s-tag-selected": "../sku-tag-selected/index"
+  }
+}

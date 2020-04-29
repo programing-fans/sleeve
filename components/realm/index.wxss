@@ -1,0 +1,144 @@
+.container {
+    box-sizing: border-box;
+    padding: 30rpx;
+    background-color: #ffffff;
+    /*padding-bottom: 200rpx;*/
+    max-height:1000rpx;
+    min-height:600rpx;
+
+    /*height: 920rpx;*/
+    /*box-sizing: border-box;*/
+}
+
+.hr{
+    margin-top: 30rpx;
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
+}
+
+
+.sku-preview {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.sku-img {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.title{
+    font-size: 28rpx;
+    color: #333333;
+    /*margin-bottom: 20rpx;*/
+}
+
+.sku-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40rpx;
+}
+
+.price-row{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.price {
+    color: #157658 !important;
+    /*font-weight: bold !important;*/
+    font-size: 28rpx !important;
+}
+
+.main-price{
+    margin-right:30rpx;
+}
+
+.price-size {
+    margin-left: 12rpx !important;
+    font-size: 34rpx !important;
+}
+
+.stock {
+    margin-left:30rpx;
+    font-size: 20rpx;
+    color: #999;
+}
+
+.stock-pinch{
+    margin-left:30rpx;
+    font-size: 20rpx;
+    color: #D20109;
+}
+
+.sku-value{
+    font-size:20rpx;
+}
+
+.sku-value :first-child{
+    color: #999;
+}
+
+.sku-value-str{
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.selector-container {
+    margin-top: 34rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 200rpx;
+}
+
+.count-class{
+   border: 3rpx solid #157658 !important;
+}
+
+.selector-container .text {
+    color: #555;
+    font-size: 24rpx;
+}
+
+.selector-size {
+    width: 64rpx !important;
+    height: 48rpx !important;
+}
+
+.count-show {
+    background-color: #ffffff !important;
+    color: #333 !important;
+    size: 24rpx !important;
+}
+
+.symbol-selector {
+    line-height: 48rpx !important;
+    background-color: transparent !important;
+}
+
+
+.bottom-btn{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100rpx;
+    background-color: #333333;
+    position: absolute;
+    bottom: 0;
+}
+
+.out-stock{
+    background-color: #DCEBE6;
+}
+
+.bottom-btn text{
+    color: #ffffff;
+}
