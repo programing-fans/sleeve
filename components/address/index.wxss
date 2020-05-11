@@ -57,7 +57,7 @@
     font-family: sleeve !important;
     font-size: 36rpx;
     font-style: normal;
-    color: #333333;
+    color: #157658 !important;
 }
 
 .bottom-img{

@@ -7,15 +7,6 @@ function shortage(stock) {
     }
 }
 
-function online(online){
-    console.log(online)
-    if (online === false){
-        return false
-    }
-    return true
-}
-
-module.exports={
-    shortage:shortage,
-    online:online
+module.exports= {
+    shortage: shortage
 }

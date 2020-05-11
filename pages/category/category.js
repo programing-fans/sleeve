@@ -1,6 +1,6 @@
-// pages/category/categories.js
+import {getSystemSize} from "../../utils/system";
+import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util";
 import {Categories} from "../../models/categories";
-import {getWindowSize} from "../../utils/system";
 import {SpuListType} from "../../core/enum";
 
 Page({
@@ -9,63 +9,58 @@ Page({
      * 页面的初始数据
      */
     data: {
-        currentSubs: [],
-        currentBannerImg: String,
-
-        categoriesObj: null,
-        segHeight: 0,
-        containerHeight: 0,
         defaultRootId: 2
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: async function (options) {
         this.initCategoryData()
-        this.setDynamicScrollHeight()
+        this.setDynamicSegmentHeight()
     },
-
-    async setDynamicScrollHeight() {
-        const res = await getWindowSize()
-        const rate = 750 / res.screenWidth
-        const windowHeightRpx = res.windowHeight * rate
-        const r = windowHeightRpx - 72
-        this.setData({
-            segHeight: r
-        })
-    },
-
-    cal() {
-        let query = wx.createSelectorQuery().in(this)
-        query.select('.search-container').boundingClientRect(function (res) {
-            //在这里做计算，res里有需要的数据
-        }).exec()
-    },
-
 
     async initCategoryData() {
-        const categoriesObj = new Categories()
-        this.data.categoriesObj = categoriesObj
-        await categoriesObj.getAll()
-        const roots = categoriesObj.getRoots()
+        const categories = new Categories()
+        this.data.categories = categories
+
+        await categories.getAll()
+        const roots = categories.getRoots()
+        const defaultRoot = this.getDefaultRoot(roots)
+        const currentSubs = categories.getSubs(defaultRoot.id)
         this.setData({
-            roots
+            roots,
+            currentSubs,
+            currentBannerImg: defaultRoot.img
         })
+    },
+
+    getDefaultRoot(roots) {
         let defaultRoot = roots.find(r => r.id === this.data.defaultRootId)
         if (!defaultRoot) {
             defaultRoot = roots[0]
         }
-        const currentSubs = categoriesObj.getSubs(defaultRoot.id);
+        return defaultRoot
+    },
+
+    async setDynamicSegmentHeight() {
+        const res = await getSystemSize()
+        const windowHeightRpx = px2rpx(res.windowHeight)
+        const h = windowHeightRpx - 60 - 20 - 2
         this.setData({
-            currentSubs,
-            currentBannerImg:defaultRoot.img
+            segHeight: h
         })
     },
 
-    onGotoSearch() {
-        wx.navigateTo({
-            url: `/pages/search/index`
+    onSegChange(event) {
+        const rootId = event.detail.activeKey
+        console.log(rootId)
+        const currentSubs = this.data.categories.getSubs(rootId)
+        const currentRoot = this.data.categories.getRoot(rootId)
+
+        this.setData({
+            currentSubs,
+            currentBannerImg:currentRoot.img
         })
     },
 
@@ -77,18 +72,17 @@ Page({
         })
     },
 
-    onSegChange(event) {
-        const rootId = event.detail.activeKey
-        const currentSubs = this.data.categoriesObj.getSubs(rootId)
-        const currentRoot = this.data.categoriesObj.getRoot(rootId)
-        this.setData({
-            currentSubs,
-            currentBannerImg:currentRoot.img
+    onGotoSearch(event) {
+        wx.navigateTo({
+            url: `/pages/search/search`
         })
     },
 
-    onShareAppMessage() {
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
 
     }
-
 })

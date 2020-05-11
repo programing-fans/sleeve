@@ -11,18 +11,8 @@ const parseSpecValue = function (specs) {
     return joiner.getStr()
 }
 
-const parseSpecValueArray = function (values) {
-    if(!values){
-        return null;
-    }
-    const joiner = new Joiner('; ', 2)
-    values.map(v=>{
-        joiner.join(v)
-    })
-    return joiner.getStr()
-}
 
 export {
-    parseSpecValue,
-    parseSpecValueArray
+    parseSpecValue
 }
+

@@ -1,9 +1,8 @@
 class Matrix {
-    data = {}
+    m
 
-    constructor(matrix) {
-        console.log(matrix)
-        this.m = matrix
+    constructor(martix) {
+        this.m = martix
     }
 
     get rowsNum() {
@@ -14,18 +13,30 @@ class Matrix {
         return this.m[0].length
     }
 
-    forEach(callback) {
+    each(cb) {
         for (let j = 0; j < this.colsNum; j++) {
             for (let i = 0; i < this.rowsNum; i++) {
-                let value = this.m[i][j]
-                let index = [i, j]
-                callback(value, i, j)
+                const element = this.m[i][j]
+                cb(element, i, j)
             }
         }
     }
+
+
+    transpose() {
+        const desArr = []
+        for (let j = 0; j < this.colsNum; j++) {
+            desArr[j] = []
+            for (let i = 0; i < this.rowsNum; i++) {
+                desArr[j][i] = this.m[i][j]
+            }
+        }
+        return desArr
+    }
+
+
 }
 
 export {
     Matrix
 }
-

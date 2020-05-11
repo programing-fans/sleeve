@@ -28,7 +28,7 @@
     <view class="one-row">
         <view class="left-side">
             <text>新全栈课购买地址</text>
-            <text>https://class.imooc.com/sale\n/javafullstack</text>
+            <text></text>
         </view>
         <view class="right-side">
             <view bind:tap="onCopyCourse" class="btn">
@@ -40,7 +40,7 @@
     <view class="one-row">
         <view class="left-side">
             <text>我的其他课程地址</text>
-            <text>http://imooc.com/t/4294850</text>
+            <text></text>
         </view>
         <view class="right-side">
             <view bind:tap="onCopyOtherCourse" class="btn">
@@ -52,7 +52,7 @@
     <view class="one-row">
         <view class="left-side">
             <text>`风袖`后台CMS地址（PC端打开）</text>
-            <text>http://sleeve.7yue.pro</text>
+            <text></text>
         </view>
         <view class="right-side">
             <view bind:tap="onCopySleeve" class="btn">

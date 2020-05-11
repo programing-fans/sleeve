@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "l-tag": "/miniprogram_npm/lin-ui/tag/index",
-    "s-counter": "../counter/index",
     "s-fence": "/components/fence/index"
   }
 }

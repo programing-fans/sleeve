@@ -1,11 +1,13 @@
-<wxs src="../../wxs/price.wxs" module="p"></wxs>
 <wxs src="../../wxs/stock.wxs" module="s"></wxs>
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+
 <l-slide-view wx:if="{{cartItem}}" height="220" width="750" slide-width="200">
-    <view  slot="left" class="container">
+    <view slot="left" class="container">
         <view class="checkbox">
             <s-checkbox bind:check="checkedItem" checked="{{cartItem.checked}}"></s-checkbox>
         </view>
-        <view bind:tap="gotoDetail" class="sku-container {{soldOut || !online?'disabled':''}}">
+
+        <view class="sku-container">
             <view class="image-container">
                 <view wx:if="{{!online}}" class="image-sold-out">
                     <text>下 架</text>
@@ -18,6 +20,7 @@
                 </view>
                 <image mode="aspectFit" class="left" src="{{cartItem.sku.img}}"></image>
             </view>
+
             <view class="right {{soldOut?'disabled':''}}">
                 <view class="description-container">
                     <view class="title-container">
@@ -36,16 +39,23 @@
                     <view wx:if="{{specStr}}" class="spec">
                         <text>{{specStr}}</text>
                     </view>
+
                 </view>
+
                 <view class="price-container">
                     <l-price
                             color="#157658"
                             count-size="28"
-                            value="{{p.mainPrice(cartItem.sku.price, cartItem.sku.discount_price).price}}">
+                            value="{{p.mainPrice(cartItem.sku.price,cartItem.sku.discount_price).price}}">
                     </l-price>
-                    <s-counter  bind:linout="onOutNumber" max="{{cartItem.sku.stock}}" bind:lintap="onSelectCount" count="{{cartItem.count}}"></s-counter>
+                    <s-counter bind:linout="onOutNumber"
+                               max="{{stock}}"
+                               bind:lintap="onSelectCount"
+                               count="{{skuCount}}">
+                    </s-counter>
                 </view>
             </view>
+
             <view wx:if="{{soldOut || !online}}" class="sold-out">
             </view>
         </view>

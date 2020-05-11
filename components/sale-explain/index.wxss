@@ -1,4 +1,3 @@
-/* components/sale-explain/index.wxss */
 
 .container{
     box-sizing: border-box;
@@ -10,7 +9,6 @@
     background-color: #ffffff;
 }
 
-
 .inner{
     height:50rpx;
     border-bottom: 2rpx solid #dcebe6;
@@ -20,14 +18,15 @@
     font-size:24rpx;
     color: #333333;
 }
-
+ 
 .inner text:before{
-    content:'•';
-    margin-right:26rpx;
-    /*color:red;*/
+    content: '•';
+    margin-right: 26rpx;
 }
 
 .container > .inner:last-child{
-    /*background-color: #ff6600;*/
-    border:none;
+    border: none;
 }
+
+
+

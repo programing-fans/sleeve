@@ -1,50 +1,55 @@
-/* components/arrival-preview/index.wxss */
-
-@import "../wxss/sleeve.wxss";
-
+/* components/spu-scroll/index.wxss */
 .container{
-    /*需要修改盒模型*/
-    box-sizing:border-box;
-    height: 456rpx;
-    /*width: 720rpx;*/
+    box-sizing: border-box;
     width: 100%;
-    padding-top:40rpx;
-    padding-left:30rpx;
-    padding-bottom: 30rpx;
+    padding: 42rpx 0 34rpx 28rpx;
     background-color: #ffffff;
 }
+
 .title{
-    width: 692rpx;
+    width: 694rpx;
     height: 90rpx;
 }
 
+.price-unit{
+    font-size:24rpx !important;
+    color: #157658 !important;
+}
+
+.price-value{
+    font-size:26rpx !important;
+    color: #157658 !important;
+}
+
 .scroll-view{
-    width: 100%;
-    height: 266rpx;
-    display: flex;
-    flex-direction: row;
-    margin-top: 32rpx;
+    margin-top:28rpx;
+    display:flex;
+    flex-direction:row;
+}
+
+.inner{
+    display:flex;
+    flex-direction:row;
 }
 
 .spu-container{
-    display: flex;
-    flex-direction: column;
     margin-right:60rpx;
+    display:flex;
+    flex-direction:column;
     align-items: center;
+}
+
+.spu-text{
+    font-size: 20rpx;
+    color: #666666;
+    margin-top:20rpx;
+    /*width: 150rpx;*/
+    /*overflow: hidden;*/
+    /*text-overflow:ellipsis;*/
+    /*white-space: nowrap;*/
 }
 
 .spu-img{
     width: 160rpx;
     height: 160rpx;
-}
-
-.spu-text{
-    font-size:20rpx;
-    color: #666;
-    margin-top:20rpx;
-}
-
-.price{
-    color: #157658 !important;
-    font-size: 24rpx !important;
 }

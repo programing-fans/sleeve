@@ -1,8 +1,8 @@
-import {Joiner} from "../utils/joiner";
 import {Http} from "../utils/http";
 
 class Sku{
     static async getSkusByIds(ids) {
+        console.log(ids)
         const res = await Http.request({
             url: `sku?ids=${ids}`
         })

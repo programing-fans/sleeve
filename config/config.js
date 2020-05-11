@@ -1,18 +1,12 @@
 const config = {
-  appkey: '',
-  clientkey: '',
-  apiBaseUrl: 'http://localhost:8088/v1/'
-}
-
-const getConfig = function () {
-  return {
-    api_base_url: config.apiBaseUrl,
-    appkey: config.appkey,
-    clientkey: config.clientkey
-  }
+    appkey: 'your appkey',
+    apiBaseUrl: 'http://localhost:8080/v1/'
 }
 
 export {
-  config,
-  getConfig
+    config
 }
+
+
+
+

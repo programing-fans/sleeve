@@ -1,8 +1,6 @@
-// pages/coupon-center/coupon-center'.js
-import {ActivityCover} from "../../models/activity-cover";
+import {Activity} from "../../models/activity";
 import {CouponCenterType} from "../../core/enum";
 import {Coupon} from "../../models/coupon";
-import {Activity} from "../../models/activity";
 
 Page({
 
@@ -10,48 +8,79 @@ Page({
      * 页面的初始数据
      */
     data: {
-        coupons:[],
-        userCollected:false
+        coupons: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: async function (options) {
-        const cid = options.cid
         const aName = options.name
-        const type= options.type
-        console.log(cid, aName, type)
-        let coupons;
-        if(type==CouponCenterType.ACTIVITY){
-             const activity = await Activity.getActivityWithCoupon()
+        const type = options.type
+        const cid = options.cid
+
+        let coupons
+
+        if (type === CouponCenterType.ACTIVITY) {
+            const activity = await Activity.getActivityWithCoupon(aName)
             coupons = activity.coupons
         }
-        if(type==CouponCenterType.SPU_CATEGORY){
-             coupons = await Coupon.getCouponsByCategory(cid)
-             const wholeStoreCoupons = await Coupon.getWholeStoreCoupons()
-             coupons = coupons.concat(wholeStoreCoupons)
+        if (type === CouponCenterType.SPU_CATEGORY) {
+            coupons = await Coupon.getCouponsByCategory(cid)
+            const wholeStoreCoupons = await Coupon.getWholeStoreCoupons()
+            coupons = coupons.concat(wholeStoreCoupons)
         }
-        console.log(coupons)
-        if (coupons.length === 0) {
-            wx.lin.showEmptyScreen({
-                text:'暂无优惠券'
-            })
-        }else{
-            this.setData({
-                coupons
-            });
-        }
+
+        this.setData({
+            coupons
+        });
     },
 
-    initCoupons(activityCover) {
-        const activities = activityCover.activities()
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
     },
 
-    async onCollectCoupon(event) {
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
     },
 
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
 
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
     onShareAppMessage: function () {
 
     }

@@ -1,45 +1,36 @@
-.container {
+
+.container{ 
     box-sizing: border-box;
-    padding: 30rpx;
+    /*padding:30rpx;*/
     background-color: #ffffff;
-    /*padding-bottom: 200rpx;*/
     max-height:1000rpx;
-    min-height:600rpx;
-
-    /*height: 920rpx;*/
-    /*box-sizing: border-box;*/
+    min-height: 700rpx;
+    margin-bottom: 100rpx;
 }
 
-.hr{
-    margin-top: 30rpx;
-    width: 690rpx;
-    height: 2rpx;
-    background-color: #E9E9E9;
+.inner-container{
+    padding: 30rpx 30rpx 0 30rpx;
 }
-
 
 .sku-preview {
     display: flex;
     flex-direction: row;
 }
 
-
-.sku-img {
+.sku-img{
     width: 160rpx;
     height: 160rpx;
 }
 
-.title{
-    font-size: 28rpx;
-    color: #333333;
-    /*margin-bottom: 20rpx;*/
-}
-
-.sku-price {
+.sku-description {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 40rpx;
+}
+
+.discount-price {
+    margin-left: 20rpx;
 }
 
 .price-row{
@@ -48,19 +39,24 @@
     align-items: baseline;
 }
 
-.price {
-    color: #157658 !important;
-    /*font-weight: bold !important;*/
-    font-size: 28rpx !important;
+.sku-pending{
+    font-size:20rpx;
 }
 
-.main-price{
-    margin-right:30rpx;
+.sku-pending > text:first-child{
+    color:#999999;
 }
 
-.price-size {
-    margin-left: 12rpx !important;
-    font-size: 34rpx !important;
+.sku-pending > text:nth-child(2){
+    color:#666666;
+}
+
+
+.hr{   
+    margin-top: 30rpx;
+    width: 690rpx;
+    height: 2rpx;
+    background-color: #E9E9E9;
 }
 
 .stock {
@@ -68,60 +64,26 @@
     font-size: 20rpx;
     color: #999;
 }
-
+ 
 .stock-pinch{
     margin-left:30rpx;
     font-size: 20rpx;
     color: #D20109;
 }
 
-.sku-value{
-    font-size:20rpx;
-}
-
-.sku-value :first-child{
-    color: #999;
-}
-
-.sku-value-str{
-    font-size: 22rpx;
-    color: #666666;
-}
-
-.selector-container {
+.counter-container {
     margin-top: 34rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 200rpx;
+    padding-bottom: 100rpx;
 }
 
-.count-class{
-   border: 3rpx solid #157658 !important;
+.counter-container text{
+    color:#555555;
+    font-size:24rpx;
 }
-
-.selector-container .text {
-    color: #555;
-    font-size: 24rpx;
-}
-
-.selector-size {
-    width: 64rpx !important;
-    height: 48rpx !important;
-}
-
-.count-show {
-    background-color: #ffffff !important;
-    color: #333 !important;
-    size: 24rpx !important;
-}
-
-.symbol-selector {
-    line-height: 48rpx !important;
-    background-color: transparent !important;
-}
-
 
 .bottom-btn{
     display:flex;

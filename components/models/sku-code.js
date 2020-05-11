@@ -1,53 +1,33 @@
 import {combination} from "../../utils/util";
 
 class SkuCode {
-    _spuId = null
-    _totalSegments = []
-    _code = null
+
+    code
+    spuId
+    totalSegments = []
 
     constructor(code) {
-        this._code = code
-        this._totalSegments = this._splitToSegments()
-    }
-
-    getSegments() {
-        return this._totalSegments
+        this.code = code
+        this._splitToSegments()
     }
 
     _splitToSegments() {
-        // 拆解一个sku路径
-        // 2$1-13#3-11#4-16
-        const spuAndSpec = this._code.split('$')
-        this._spuId = spuAndSpec[0]
-        const valueIds = this._getValueIdArray(spuAndSpec[1])
-        const length = valueIds.length
-        const totalSegments = []
+        const spuAndSpec = this.code.split('$')
+        this.spuId = spuAndSpec[0]
+
+        const specCodeArray = spuAndSpec[1].split('#')
+        const length = specCodeArray.length
+
         for (let i = 1; i <= length; i++) {
-            const segmentsArray = combination(valueIds, i)
-            const newSegments = segmentsArray.map((segments =>{
-                return segments.join('-')
-            }))
-            totalSegments.push.apply(totalSegments, newSegments);
+            const segments = combination(specCodeArray, i)
+            const newSegments = segments.map(segs=>{
+                return segs.join('#')
+            })
+            this.totalSegments = this.totalSegments.concat(newSegments)
         }
-        return totalSegments
     }
-
-
-    _getValueIdArray(specId) {
-        const specSegments= specId.split('#')
-        const valueIds = []
-        specSegments.forEach(spec=>{
-            valueIds.push(spec.split('-')[1])
-        })
-        return valueIds
-    }
-
-
-    // 获取数组中任意数量元素的组合
 }
 
 export {
     SkuCode
 }
-
-

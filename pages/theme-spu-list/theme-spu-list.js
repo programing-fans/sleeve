@@ -1,6 +1,3 @@
-// pages/spu-list/spu-list.js
-import {SpuPaging} from "../../models/spu-paging";
-import {SpuListType} from "../../core/enum";
 import {Theme} from "../../models/theme";
 
 Page({

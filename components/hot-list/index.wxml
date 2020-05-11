@@ -1,32 +1,13 @@
-<view class="container" xmlns:bind="">
-    <view hover-class="small-hover" hover-stay-time="1000">
-        <image data-tname="t-5" bind:tap="onGotToTheme" class="title" src="{{titleImg}}"></image>
-    </view>
+
+<view class="container">
+    <image class="title" src="{{banner.img}}"></image>
     <view class="inner-container">
-        <view hover-class="react-hover" hover-stay-time="300">
-            <image data-keyword="{{left.keyword}}" data-type="{{left.type}}"
-                   bind:tap="onGotoDetail"
-                   class="left" src="{{left.img}}">
-            </image>
+        <view hover-class="rect-hover" hover-stay-time="300">
+            <image class="left" src="{{left.img}}"></image>
         </view>
-
-        <view class="right">
-            <view hover-class="react-hover" hover-stay-time="300">
-                <image data-keyword="{{rightTop.keyword}}"
-                       data-type="{{rightTop.type}}"
-                       bind:tap="onGotoDetail"
-                       mode="aspectFill"
-                       class="right-size"
-                       src="{{rightTop.img}}"></image>
-            </view>
-
-            <view hover-class="react-hover" hover-stay-time="300">
-                <image data-keyword="{{rightBottom.keyword}}"
-                       data-type="{{rightBottom.type}}"
-                       bind:tap="onGotoDetail"
-                       mode="aspectFill" class="right-size"
-                       src="{{rightBottom.img}}"></image>
-            </view>
+        <view class="right-container">
+            <image class="right-size" src="{{rightTop.img}}"></image>
+            <image class="right-size" src="{{rightBottom.img}}"></image>
         </view>
     </view>
 </view>

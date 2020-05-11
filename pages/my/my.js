@@ -1,7 +1,7 @@
 // pages/my/my.js
 import {Coupon} from "../../models/coupon";
-import {AuthAddress, CouponStatus} from "../../core/enum";
 import {promisic} from "../../utils/util";
+import {AuthAddress, CouponStatus} from "../../core/enum";
 
 Page({
 
@@ -15,11 +15,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onShow: async function (options) {
-        const coupon = await Coupon.getMyCoupons(CouponStatus.AVAILABLE)
-        console.log(coupon.length)
+    onLoad: async function (options) {
+        const coupons = await Coupon.getMyCoupons(CouponStatus.AVAILABLE)
         this.setData({
-            couponCount: coupon.length
+            couponCount: coupons.length
         })
     },
 
@@ -35,26 +34,12 @@ Page({
         })
     },
 
-    onGotoMyCourse(event) {
-        wx.navigateTo({
-            url:"/pages/about-course/about-course"
-        })
-    },
-
-    onGotoLinUI() {
-        wx.navigateToMiniProgram({
-            appId:'wxdcec05d9a27f9064'
-        })
-    },
-
     async onMgrAddress(event) {
-        // wx.open
         const authStatus = await this.hasAuthorizedAddress()
         if (authStatus === AuthAddress.DENY) {
             this.setData({
                 showDialog: true
             })
-            // wx.openSetting()
             return
         }
         this.openAddress()
@@ -80,4 +65,52 @@ Page({
         res = await promisic(wx.chooseAddress)();
     },
 
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })

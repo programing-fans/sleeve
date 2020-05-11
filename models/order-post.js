@@ -1,14 +1,13 @@
-class OrderPost{
-
+class OrderPost {
     total_price
     final_total_price
     coupon_id
     sku_info_list = []
     address = {}
 
-    constructor(totalPrice, realPrice, couponId, skuInfoList, address) {
+    constructor(totalPrice, finalTotalPrice, couponId, skuInfoList, address) {
         this.total_price = totalPrice
-        this.final_total_price = realPrice
+        this.final_total_price = finalTotalPrice
         this.coupon_id = couponId
         this.sku_info_list = skuInfoList
         this._fillAddress(address)

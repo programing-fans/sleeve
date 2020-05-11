@@ -1,11 +1,11 @@
-class HttpException extends Error{
-    errorCode = 999
+class HttpException extends Error {
+    errorCode = 9999
     statusCode = 500
     message = ''
 
-    constructor(errorCode, msg, statusCode) {
+    constructor(errorCode, message, statusCode) {
         super()
-        this.message = msg;
+        this.message = message;
         this.errorCode = errorCode;
         this.statusCode = statusCode;
     }

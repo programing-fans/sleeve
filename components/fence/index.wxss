@@ -1,7 +1,10 @@
-/* components/spec/index.wxss */
-.container{
-    /*padding: 30rpx;*/
-    color: #555;
+/* components/fence/index.wxss */
+
+.row-container{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    flex-wrap:wrap;
 }
 
 .title{
@@ -11,25 +14,13 @@
     margin-bottom: 28rpx;
 }
 
-
+.cell{
+    margin-bottom: 30rpx;
+    margin-right: 20rpx;
+}
 
 .hr{
-    /*margin-top: 30rpx;*/
     width: 690rpx;
     height: 2rpx;
     background-color: #E9E9E9;
 }
-
-
-.row-container{
-    display:flex;
-    flex-direction:row;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.tag{
-    margin-bottom:30rpx;
-    margin-right: 20rpx ;
-}
-

@@ -1,40 +1,32 @@
-import {
-    config
-} from '../config/config.js'
-
+import {config} from "../config/config";
 import {promisic} from "./util";
 import {Token} from "../models/token";
-import {behavior, codes} from "../config/excpetion-config";
+import {codes} from "../config/exception-config";
 import {HttpException} from "../core/http-exception";
-import {getConfig} from "../config/config";
-
 
 class Http {
     static async request({
                              url,
-                             data = {},
+                             data,
                              method = 'GET',
-                             noRefetch = false,
-                             throwError = false,
+                             refetch = true,
+                             throwError = false
                          }) {
         let res;
         try {
-            console.log(url)
             res = await promisic(wx.request)({
-                url: getConfig().api_base_url + url,
+                url: `${config.apiBaseUrl}${url}`,
                 data,
                 method,
                 header: {
                     'content-type': 'application/json',
-                    'appkey': getConfig().appkey,
-                    'authorization': `Bearer ${wx.getStorageSync('token')}`,
-                    'clientkey':getConfig().clientkey
+                    appkey: config.appkey,
+                    'authorization': `Bearer ${wx.getStorageSync('token')}`
                 }
             })
         } catch (e) {
             if (throwError) {
-                throw new HttpException(-1, '请求失败，可能是网络中断',
-                    null)
+                throw new HttpException(-1, codes[-1])
             }
             Http.showError(-1)
             return null
@@ -44,84 +36,60 @@ class Http {
             return res.data
         } else {
             if (code === '401') {
-                if (!noRefetch) {
-                    return Http._refetch({
-                            url,
-                            data,
-                            method
-                        }
-                    )
+                if (data.refetch) {
+                    Http._refetch({
+                        url,
+                        data,
+                        method
+                    })
                 }
             } else {
                 if (throwError) {
-                    throw new HttpException(res.data.error_code, res.data.msg,
-                        res.statusCode)
+                    throw new HttpException(res.data.code, res.data.message, code)
                 }
                 if (code === '404') {
-                    // 404 不抛出异常
-                    return isArray ? [] : null
+                    if (res.data.code !== undefined) {
+                        return null
+                    }
+                    return res.data
                 }
-                const error_code = res.data.error_code;
-                this.showError(error_code, res.data)
+                const error_code = res.data.code;
+                Http.showError(error_code, res.data)
             }
         }
+        return res.data
     }
-
 
     static async _refetch(data) {
         const token = new Token()
         await token.getTokenFromServer()
-        data.noRefetch = true
+        data.refetch = false
         return await Http.request(data)
     }
 
-
     static showError(error_code, serverError) {
-        console.log(error_code, serverError)
-        if (!error_code) {
-            error_code = 999
-        }
-        else if (codes[error_code] === undefined) {
-            error_code = serverError.msg
-        }
-        // } else {
-        //     error_code = 777
-        // }
         let tip
-        tip = codes[error_code]
+        console.log(error_code)
+
+        if (!error_code) {
+            tip = codes[9999]
+        } else {
+            if (codes[error_code] === undefined) {
+                tip = serverError.message
+            } else {
+                tip = codes[error_code]
+            }
+        }
+
         wx.showToast({
             icon: "none",
             title: tip,
             duration: 3000
         })
     }
-
-
 }
+
 
 export {
     Http
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

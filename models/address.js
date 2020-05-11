@@ -1,8 +1,9 @@
-class Address{
+class Address {
     static STORAGE_KEY = 'address'
+
     static getLocal() {
         const address = wx.getStorageSync(Address.STORAGE_KEY)
-        return address?address:null
+        return address ? address : null
     }
 
     static setLocal(address) {

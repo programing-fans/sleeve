@@ -1,17 +1,16 @@
 {
   "name": "sleeve",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "高级电商小程序（前端）",
+  "explain": "仅供学习参考,禁止商用",
+  "main": "app.js",
+  "detail": "小程序、vue、java和SpringBoot",
+  "author": "Steven",
+  "dependencies": {
+    "lin-ui": "0.7.5"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jackeason",
-  "license": "ISC",
-  "dependencies": {
-    "lin-ui": "^0.5.15",
-    "lodash": "^4.17.15",
-    "math.js": "^1.1.43",
-    "numbers": "^0.7.0",
-    "sylvester": "0.0.21"
   }
 }

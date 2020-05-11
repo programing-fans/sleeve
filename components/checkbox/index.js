@@ -1,4 +1,3 @@
-// components/checkbox/index.js
 Component({
     /**
      * 组件的属性列表
@@ -18,14 +17,15 @@ Component({
     methods: {
         onCheck(event) {
             let checked = this.properties.checked
+            checked = !checked
             this.setData({
-                checked: !this.properties.checked
+                checked
             })
-            this.triggerEvent('check',{
-                checked:checked?false:true
-            },{
-                bubbles:true,
-                composed:true
+            this.triggerEvent('check', {
+                checked
+            }, {
+                bubbles: true,
+                composed: true
             })
         }
     }

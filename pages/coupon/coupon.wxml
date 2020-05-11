@@ -1,5 +1,3 @@
-<s-empty-screen></s-empty-screen>
-
 <view class="container">
     <block wx:for="{{coupons}}">
         <s-coupon coupon="{{item}}" status="0"></s-coupon>

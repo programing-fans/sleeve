@@ -37,6 +37,7 @@ Page({
         })
         this.data.paging = this.getPaging(activeKey)
         const data = await this.data.paging.getMoreData()
+        console.log(data)
         if(!data){
             return
         }
@@ -73,7 +74,7 @@ Page({
             this.empty()
             return
         }
-        if (data.accumulator.length !== 0 && data.diff){
+        if (data.accumulator.length !== 0){
             this.setData({
                 items:data.accumulator,
                 bottomLoading:true

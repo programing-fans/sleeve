@@ -1,18 +1,10 @@
-// pages/about-course/about-course.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    urlFullStack:'https://class.imooc.com/sale/javafullstack',
-    urlOtherCourse:'http://imooc.com/t/4294850',
-    urlSleeve:'http://sleeve.7yue.pro'
+    urlFullStack:'',
+    urlOtherCourse:'',
+    urlSleeve:''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },

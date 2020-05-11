@@ -1,17 +1,18 @@
-// 引用使用es6的module引入和定义
-// 全局变量以g_开头
-// 私有函数以_开头
-import {
-    config
-}
-    from '../config/config.js'
+import {config} from "../config/config";
 import {promisic} from "../utils/util";
-import {getConfig} from "../config/config";
 
 class Token {
+    // 1. 携带Token
+    // server 请求Token
+
+    // 登录 token -> storage
+
+    // token 1. token不存在 2.token 过期时间
+    // 静默登录
+
     constructor() {
-        this.verifyUrl = getConfig().api_base_url + 'token/verify'
-        this.tokenUrl = getConfig().api_base_url + 'token'
+        this.tokenUrl = config.apiBaseUrl + "token"
+        this.verifyUrl = config.apiBaseUrl + "token/verify"
     }
 
     async verify() {
@@ -23,45 +24,40 @@ class Token {
         }
     }
 
+    async getTokenFromServer() {
+        // code
+        const r = await wx.login()
+        const code = r.code
+
+        const res = await promisic(wx.request)({
+            url: this.tokenUrl,
+            method: 'POST',
+            data: {
+                account: code,
+                type: 0
+            },
+        })
+        wx.setStorageSync('token', res.data.token)
+        return res.data.token
+    }
+
     async _verifyFromServer(token) {
-        console.log(token)
         const res = await promisic(wx.request)({
             url: this.verifyUrl,
             method: 'POST',
-            data: {token},
-            header:{
-                appkey:`${getConfig().appkey}`,
-                clientkey:`${getConfig().clientkey}`
+            data: {
+                token
             }
         })
-        console.log(res)
-        const valid = res.data.is_valid
-        console.log(valid)
 
+        const valid = res.data.is_valid
         if (!valid) {
             return this.getTokenFromServer()
         }
     }
 
-    async getTokenFromServer() {
-        const r = await promisic(wx.login)()
-        const res = await promisic(wx.request)({
-            url: this.tokenUrl,
-            method: 'POST',
-            header:{
-                appkey:`${getConfig().appkey}`,
-                clientkey:`${getConfig().clientkey}`,
-            },
-            data: {
-                account: r.code,
-                type: 0
-            }
-        })
-        wx.setStorageSync('token', res.data.token)
-        return res.data.token;
-    }
 }
 
 export {
     Token
-};
+}

@@ -1,4 +1,3 @@
-// components/tab-bar/index.js
 Component({
   /**
    * 组件的属性列表
@@ -34,6 +33,5 @@ Component({
     onBuy(event){
       this.triggerEvent('buy')
     }
-
   }
 })

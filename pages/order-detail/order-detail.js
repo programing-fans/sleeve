@@ -1,4 +1,3 @@
-// pages/order-detail/order-detail.js
 import {Order} from "../../models/order";
 import {OrderDetail} from "../../models/order-detail";
 import {Payment} from "../../models/payment";
@@ -9,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        oid:null
+        oid: null
     },
 
     /**
@@ -21,14 +20,13 @@ Page({
         const order = await Order.getDetail(oid)
         const detail = new OrderDetail(order)
         this.setData({
-            order:detail
+            order: detail
         })
     },
 
     async onPay(event) {
         const oid = this.data.oid
         if (!oid) {
-            // this.enableSubmitBtn()
             return
         }
         wx.lin.showLoading({
@@ -36,14 +34,13 @@ Page({
             fullScreen: true,
             color: "#157658"
         })
-        const payParams = await Payment.getPayParms(oid)
-        // let payStatus = OrderStatus.UNPAID
+        const payParams = await Payment.getPayParams(oid)
         let res
         try {
-            res = await Payment.pay(payParams)
+            res = await wx.requestPayment(payParams)
             wx.lin.hideLoading()
             wx.navigateTo({
-                url:`/pages/pay-success/pay-success?oid=${oid}`
+                url: `/pages/pay-success/pay-success?oid=${oid}`
             })
         } catch (e) {
             wx.lin.hideLoading()

@@ -1,34 +1,49 @@
-import {TagStatus} from "../../core/enum";
+import {Cell} from "./cell";
 
-class Fence{
-    key
-    keyId
-    values = []
-    valueTitles = []
-    defaultValueId
 
-    constructor(){
+class Fence {
+
+    cells = []
+    specs
+    title
+    id
+
+    constructor(specs) {
+        this.specs = specs
+        this.title = specs[0].key
+        this.id = specs[0].key_id
     }
 
-    getDefaultValueIndex() {
-        return this.values.findIndex(value=> value.valueId == this.defaultValueId)
+    init() {
+        this._initCells()
     }
 
-    changeStatus(valueIndex, tagStatus) {
-        this.values[valueIndex].status = tagStatus
+
+    _initCells() {
+        this.specs.forEach(s => {
+            const existed = this.cells.some(c=>{
+                return c.id === s.value_id
+            })
+            if(existed){
+                return
+            }
+            const cell = new Cell(s)
+            this.cells.push(cell)
+        })
     }
 
-    _refreshOtherStatus(valueIndex) {
-        const value = this.values[valueIndex]
-        if (value.status === TagStatus.SELECTED) {
-            value.status = TagStatus.WAITING
+    setFenceSketch(skuList) {
+        this.cells.forEach(c=>{
+            this._setCellSkuImg(c, skuList)
+        })
+    }
+
+    _setCellSkuImg(cell, skuList) {
+        const specCode = cell.getCellCode()
+        const matchedSku = skuList.find(s=>s.code.includes(specCode))
+        if(matchedSku){
+            cell.skuImg = matchedSku.img
         }
-    }
-
-    getValueIdArray() {
-        return [].push(this.values.map(value=>{
-            return value.valueId
-        }))
     }
 }
 

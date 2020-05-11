@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "s-address": "/components/address/index",
     "s-coupon-picker": "/components/coupon-picker/index"
   }
 }

@@ -1,13 +1,9 @@
-/* pages/my/my.wxss */
 .container{
-    /*display:flex;*/
-    /*flex-direction:column;*/
-    /*align-items: center;*/
 }
 
 .sleeve-coupon {
     font-family: sleeve !important;
-    font-size: 30rpx !important; 
+    font-size: 30rpx !important;
     font-style: normal;
     color: #157658 !important;
 }
@@ -27,11 +23,11 @@
 }
 
 .sleeve-sunny{
-      font-family: sleeve !important;
-      font-size: 36rpx !important;
-      font-style: normal;
-      color: #b96049 !important;
-  }
+    font-family: sleeve !important;
+    font-size: 36rpx !important;
+    font-style: normal;
+    color: #b96049 !important;
+}
 
 .sleeve-flower{
     font-family: sleeve !important;

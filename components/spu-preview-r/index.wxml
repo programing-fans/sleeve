@@ -1,7 +1,7 @@
 
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 
-<view hover-class="react-hover" hover-stay-time="300" data-pid="{{data.id}}" bind:tap="onItemTap" class="container">
+<view  hover-stay-time="300" data-pid="{{data.id}}" bind:tap="onItemTap" class="container">
     <image class="discount-tag" src="/components/imgs/discount.png" wx:if="{{data.discount_price}}"></image>
     <image bind:load="onLoadImg"
            class="img" src="{{data.img}}" mode="aspectFit"></image>

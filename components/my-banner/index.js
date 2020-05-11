@@ -20,6 +20,7 @@ Component({
 
     lifetimes: {
         async attached() {
+            // wx.getUserInfo()
             console.log(this.properties.couponCount)
             if (!await this.hasAuthUserInfo()) {
                 this.setData({
@@ -39,6 +40,7 @@ Component({
      */
     methods: {
         async onAuthUserInfo(event) {
+            console.log(event.detail)
             if (event.detail.userInfo) {
                 const success = await User.updateUserInfo(event.detail.userInfo)
                 this.setData({

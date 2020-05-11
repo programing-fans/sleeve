@@ -23,7 +23,7 @@
         <view class="one-row">
             <view class="left-side">
                 <text>林间有风专栏</text>
-                <text>http://course.7yue.pro</text>
+                <text></text>
             </view>
             <view class="right-side">
                 <view bind:tap="onCopyCourse" class="btn">
@@ -34,8 +34,8 @@
 
         <view class="one-row">
             <view class="left-side">
-                <text>Lin开源项目GitHub</text>
-                <text>http://github.com/talelin</text>
+                <text>开源项目GitHub</text>
+                <text></text>
             </view>
             <view class="right-side">
                 <view bind:tap="onCopyGit" class="btn">

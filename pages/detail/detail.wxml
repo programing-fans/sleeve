@@ -1,21 +1,15 @@
-
-<wxs module="r" src="../../wxs/realm.wxs" ></wxs>
-<scroll-view style="height:{{scrollHeight}}rpx" scroll-y="true" class="container">
-
-
+<scroll-view style="height:{{h}}rpx;" scroll-y>
     <swiper class="top"
-            autoplay="{{true}}"
-            indicator-dots="{{true}}">
-        <block wx:for="{{spu.spu_img_list}}">
+            autoplay
+            indicator-dots>
+        <block wx:for="{{spu.spu_img_list}}" wx:key="index">
             <swiper-item>
-                <image mode="aspectFill" class="top" src="{{item.img}}"></image>
+                <image class="top" mode="aspectFill" src="{{item.img}}"></image>
             </swiper-item>
         </block>
     </swiper>
 
-
     <s-spu-description spu="{{spu}}"></s-spu-description>
-
 
     <view bind:tap="onGoToCouponCenter" class="coupon-container" wx:if="{{coupons.length!=0}}">
         <view class="coupon-left">
@@ -30,49 +24,39 @@
     </view>
 
 
-    <view bind:tap="onAddToCart" wx:if="{{!noSpec}}" class="spec-container">
-        <view class="spec">
-            <text wx:if="{{r.showTipPlease(specChosen.intactPending, spec.Chosen.noSpec)}}">请选择：</text>
+    <view bind:tap="onAddToCart" wx:if="{{!specs.noSpec}}" class="sku-pending">
+        <view class="specs">
+            <text wx:if="{{!specs.skuIntact}}">请选择：</text>
             <text wx:else>已选：</text>
-            <text wx:if="{{r.showTipPlease(specChosen.intactPending, spec.Chosen.noSpec)}}" class="sku-value-str">{{specChosen.waitingSpuKeyStr}}
-            </text>
-            <text wx:else class="sku-value-str">{{specChosen.skuValueStr}}</text>
+            <text wx:if="{{!specs.skuIntact}}">{{specs.missingKeys}}</text>
+            <text wx:else>{{specs.currentValues}}</text>
         </view>
-        <view class="coupon-right">
+        <view class="arrow-right">
             <l-icon name="right" color="#157658" size="24"></l-icon>
         </view>
     </view>
 
-
     <view class="explain">
-        <s-sale-explain texts="{{saleExplain}}" is-test="{{spu.is_test}}"></s-sale-explain>
+        <s-sale-explain texts="{{explain}}"></s-sale-explain>
     </view>
 
-
     <view class="detail-img-container">
-        <block wx:for="{{spu.spu_detail_img_list}}">
-            <image class="detail-img"
-                   src="{{item.img}}"
-                   bind:load="onLoadImg"
-                   style="height:{{h}}rpx;width: {{w}}rpx;"></image>
+        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="index">
+            <image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
         </block>
     </view>
 
-
 </scroll-view>
 
-
-
+<l-popup content-align="bottom" show="{{showRealm}}">
+    <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
+</l-popup>
 
 <s-tabbar class="tabbar"
-          cart-item-count = "{{cartItemCount}}"
-          bind:gotohome="onGoToHome"
-          bind:gotocart="onGoToCart"
+          cart-item-count="{{cartItemCount}}"
+          bind:gotohome="onGotoHome"
+          bind:gotocart="onGotoCart"
           bind:addtocart="onAddToCart"
           bind:buy="onBuy">
 </s-tabbar>
-<l-popup bind:lintap="onCloseRealm" content-align="bottom" show="{{showRealm}}">
-    <s-realm bind:specchange="onSpecChange" bind:shopping="onShopping" order-way="{{orderWay}}" show="{{showRealm}}" spu="{{spu}}"></s-realm>
-</l-popup>
-<l-toast></l-toast>
-<l-loading></l-loading>
+

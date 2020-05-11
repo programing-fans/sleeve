@@ -1,4 +1,3 @@
-// pages/test/test.js
 Page({
 
   /**
@@ -13,7 +12,6 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      // show: true 
     })
   },
 

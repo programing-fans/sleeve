@@ -1,13 +1,5 @@
-/* components/category-grid/index.wxss */
 .container{
-    /*height: 300rpx;*/
     width: 510rpx;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*padding-top: 10rpx;*/
-    /*padding-bottom: 10rpx;*/
-    /*background-color: #ffffff;*/
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -15,8 +7,6 @@
 
 .inner-container{
     width: 510rpx;
-    /*height: 300rpx;*/
-    /*border: 1px dashed #DCEBE6;*/
 }
 
 

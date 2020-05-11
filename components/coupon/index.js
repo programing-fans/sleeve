@@ -1,9 +1,9 @@
 // components/coupon/index.js
-import {getSlashYMD, toDate, getDotYMD} from "../../utils/date";
-import {Coupon} from "../../models/coupon";
+// import {Coupon} from "../../models/coupon";
 import {showToast} from "../../utils/ui";
 import {CouponData} from "./coupon-data";
 import {CouponStatus} from "../../core/enum";
+import {Coupon} from "../../models/coupon";
 
 Component({
     /**
@@ -11,47 +11,40 @@ Component({
      */
     properties: {
         coupon: Object,
-        userCollected: Boolean,
-        status:Number
+        // userCollected: Boolean,
+        status: {
+            type: Number,
+            value: CouponStatus.CAN_COLLECT
+        }
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
-        _coupon:Object,
+        _coupon: Object,
+        _status: CouponStatus.CAN_COLLECT,
+        userCollected: false
     },
 
     observers: {
-        'coupon, status': function (coupon) {
+        'coupon': function (coupon) {
+            console.log(coupon)
             if (!coupon) {
                 return
             }
             this.setData({
                 _coupon: new CouponData(coupon),
-                // status
             })
         }
     },
 
-    attached() {
-    },
-
-    /**
-     * 组件的方法列表
-     */
     methods: {
         async onGetCoupon(event) {
-            if(this.data.status == CouponStatus.AVAILABLE){
+            if (this.data.userCollected) {
                 wx.switchTab({
-                    url:`/pages/category/category`
+                    url: `/pages/category/category`
                 })
                 return
             }
-            if (this.properties.status !== CouponStatus.CAN_COLLECT) {
-                return
-            }
-            if (this.properties.userCollected) {
+            if (this.data._status === CouponStatus.AVAILABLE) {
                 showToast('您已领取了该优惠券,在"我的优惠券"中可查看');
                 return;
             }
@@ -60,13 +53,14 @@ Component({
             try {
                 msg = await Coupon.collectCoupon(couponId)
             } catch (e) {
-                if (e.errorCode == 40006) {
+                if (e.errorCode === 40006) {
                     this.setUserCollected()
                     showToast('您已领取了该优惠券,在"我的优惠券"中可查看')
                 }
                 return
             }
-            if (msg.error_code == 0) {
+            if (msg.code === 0) {
+                console.log(123123)
                 this.setUserCollected()
                 showToast('领取成功，在"我的优惠券"中查看')
             }
@@ -74,6 +68,7 @@ Component({
 
         setUserCollected() {
             this.setData({
+                _status: CouponStatus.AVAILABLE,
                 userCollected: true
             })
         }

@@ -1,10 +1,12 @@
 <view class="container">
     <s-address bind:address="onChooseAddress"></s-address>
+
     <view class="order-item-container">
         <block wx:for="{{orderItems}}" wx:key="{{item.sku.id}}">
             <s-order-sku-item l-class="order-item" order-item="{{item}}"></s-order-sku-item>
         </block>
     </view>
+
     <view class="temp-price-container">
         <view class="origin-price-container">
             <text>商品总金额：</text>
@@ -20,7 +22,9 @@
             </view>
         </view>
     </view>
-    <s-coupon-picker bind:choose = "onChooseCoupon" coupons="{{couponBOList}}"></s-coupon-picker>
+
+    <s-coupon-picker bind:choose="onChooseCoupon" coupons="{{couponBOList}}"></s-coupon-picker>
+
 </view>
 
 <view class="bottom">
@@ -37,21 +41,10 @@
     </l-button>
 </view>
 
-<l-toast l-class="toast"></l-toast>
-
-<l-dialog type="alert" title="Hello" l-title-class="dialog-title" show="{{containsTest}}" l-confirm-class="dialog-confirm">
-    <view class="dialog-content">
-        <text> 当前订单包含演示数据，无法支付</text>
-        <text> 目前仅可支付测试商品</text>
-        <text> 如要体验完整下单和支付流程，请仅挑选测试商品进行支付。</text>
-        <text> 测试商品非真实商品，目前仅用于测试。请知悉。</text>
-    </view>
-</l-dialog>
-
-<l-dialog content-color="#333333" type="alert" title="订单生成失败" l-confirm-class="dialog-confirm" show="{{priceFloat}}" content="{{floatErrorMsg}}">
-
-</l-dialog>
-
 <l-status-show show="{{!isOk}}" describe="订单中包含有售罄/下架/超出数量的商品" type="data"></l-status-show>
+
+<l-dialog content-color="#333333" type="alert" title="订单生成失败" l-confirm-class="dialog-confirm" show="{{orderFail}}" content="{{orderFailMsg}}">
+
+</l-dialog>
 
 <l-loading></l-loading>

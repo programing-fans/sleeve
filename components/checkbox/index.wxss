@@ -1,10 +1,4 @@
-.sleeve {
-    font-family: sleeve !important;
-    font-size: 7rpx;
-    font-style: normal;
-    color: #ffffff !important;
-    line-height: 28rpx;
-}
+/* components/checkbox/index.wxss */
 
 .container{
     width: 40rpx;
@@ -25,4 +19,10 @@
     border: 2rpx solid #157658;
 }
 
-
+.sleeve {
+    font-family: sleeve !important;
+    font-size: 7rpx;
+    font-style: normal;
+    color: #ffffff !important;
+    line-height: 28rpx;
+}

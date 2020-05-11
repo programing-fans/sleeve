@@ -1,9 +1,6 @@
 /* components/cart/index.wxss */
 page{
     background-color: #f3f4f6;
-    /*width: 0;*/
-    /*height: 0;*/
-    /*color: transparent;*/
 }
 .container{
     box-sizing: border-box;
@@ -11,11 +8,10 @@ page{
     flex-direction:column;
     width: 100%;
     background-color: #ffffff;
-    /*padding-bottom:200rpx;*/
     min-height:300rpx;
 }
 
-
+  
 .total-container{
     box-sizing: border-box;
     width: 100%;
@@ -83,7 +79,7 @@ page{
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    
+
     /*display: -webkit-box;*/
     /*width: 180rpx;*/
     /*-webkit-box-orient: vertical;*/

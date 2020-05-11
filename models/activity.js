@@ -1,24 +1,17 @@
 import {Http} from "../utils/http";
 
 class Activity {
-    // static locationD = 'a-1'
     static locationD = 'a-2'
 
-    // static getHomeLocationD() {
-    //     return Http.request({
-    //         url: `activity/name/${Activity.locationD}`
-    //     })
-    // }
-
     static async getHomeLocationD() {
-        return Http.request({
+        return await Http.request({
             url: `activity/name/${Activity.locationD}`
         })
     }
 
-    static async getActivityWithCoupon() {
+    static async getActivityWithCoupon(activityName) {
         return Http.request({
-            url:`activity/name/${Activity.locationD}/with_coupon`
+            url: `activity/name/${activityName}/with_coupon`
         })
     }
 }

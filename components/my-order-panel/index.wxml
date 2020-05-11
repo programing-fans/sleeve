@@ -1,4 +1,3 @@
-<!--<view class="container">-->
 <view class="inner-container">
     <view class="title-row">
         <text>我的订单</text>
@@ -28,4 +27,3 @@
         </view>
     </view>
 </view>
-<!--</view>-->

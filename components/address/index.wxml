@@ -1,8 +1,8 @@
 <view class="container">
-    <l-button wx:if="{{!hasChosen}}" bind:lintap="onChooseAddress" plain="{{true}}"
+    <l-button wx:if="{{!hasChosen}}" bind:lintap="onChooseAddress"
+              plain
               width="360"
               height="88"
-              open-type:
               shape="square"
               icon="address1"
               icon-size="28"
@@ -10,6 +10,7 @@
               l-icon-class="sleeve"
               l-class="btn">选择地址
     </l-button>
+
     <view bind:tap="onChooseAddress" wx:if="{{hasChosen}}" class="address-container">
         <view class="address-inner">
             <view class="base-info">
@@ -19,15 +20,17 @@
             </view>
             <view class="address-info">
                 <text>{{address.provinceName}}</text>
-                <text>  {{address.cityName}}</text>
-                <text>  {{address.countyName}}</text>
-                <text>  {{address.detailInfo}}</text>
+                <text> {{address.cityName}}</text>
+                <text> {{address.countyName}}</text>
+                <text> {{address.detailInfo}}</text>
             </view>
         </view>
         <l-icon style="font-weight: bold" name="right" color="#157658" size="30"></l-icon>
     </view>
+
     <image class="bottom-img" src="../imgs/bottom@address.png"></image>
 </view>
+
 
 <l-dialog content-color="#333333"
           confirm-color="#157658"
@@ -36,5 +39,4 @@
           show="{{showDialog}}"
           content="请先授权《风袖》获取您的收货地址"
           title="授权">
-
 </l-dialog>

@@ -1,14 +1,14 @@
 <view class="container">
     <view class="search-container">
-        <l-button shape="square"
-                  width="710"
-                  height="60"
-                  icon="research"
-                  icon-size="24"
-                  icon-color="#C4C9D2"
-                  bind:lintap="onGotoSearch"
-                  l-class="search-btn">
-
+        <l-button
+                width="710"
+                height="60"
+                icon="research"
+                icon-size="24"
+                icon-color="#C4C9D2"
+                l-class="search-btn"
+                bind:lintap="onGotoSearch"
+                shape="square">
             搜索商品
         </l-button>
     </view>
@@ -16,27 +16,21 @@
         <l-segment
                 active-key="{{defaultRootId}}"
                 height="{{segHeight}}"
-                width="160"
                 item-height="90"
                 even="{{false}}"
-                l-class="l-left"
-                l-line-class="l-seg-line"
+                width="160"
+                scrollable
+                bind:linchange="onSegChange"
                 l-active-class="segment-item-active"
                 l-inactive-class="segment-item"
-                bind:linchange="onSegChange"
+                l-line-class="l-seg-line"
                 placement="left">
-
-            <block wx:for="{{roots}}">
-                <l-segment-item tab="{{item.name}}" key="{{item.id}}"></l-segment-item>
+            <block wx:for="{{roots}}" wx:key="index">
+               <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
             </block>
         </l-segment>
         <view class="right">
-            <!--            <view class="banner"></view>-->
-            <!--            <text class="title">- 全部分类 -</text>-->
-            <s-sub-category bind:itemtap="onJumpToSpuList"
-                            categories="{{currentSubs}}"
-                            bannerImg = "{{currentBannerImg}}">
-            </s-sub-category>
+            <s-sub-category bind:itemtap="onJumpToSpuList" categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></s-sub-category>
         </view>
     </view>
 </view>

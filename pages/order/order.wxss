@@ -1,4 +1,6 @@
 /* pages/order/order.wxss */
+
+/* pages/order/order.wxss */
 .container {
     padding-bottom: 100rpx;
 }
@@ -133,4 +135,5 @@
 
 /*.text:before{*/
 /*}*/
+
 

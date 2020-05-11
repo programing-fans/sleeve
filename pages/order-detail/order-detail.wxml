@@ -12,7 +12,7 @@
         </view>
     </view>
     <view class="sku-panel">
-        <block wx:for="{{order.snap_items}}" wx:key="index">
+        <block wx:for="{{order.snap_items}}" wx:key="{{index}}">
             <s-order-sku-item l-class="order-item" order-item="{{item}}"></s-order-sku-item>
         </block>
     </view>

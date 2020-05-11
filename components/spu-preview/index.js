@@ -1,65 +1,39 @@
-// components/spu-preview/index.js
-
-import {tagsSplit} from "../../utils/util";
-
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
         data: Object
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
-        _tags: Array,
-        h:{
-            type:Number,
-            value:360
-        },
-        w:{
-            type:Number,
-            width:340
-        }
+        tags: Array
     },
 
     observers: {
-        'data': function (data) {
+        data: function (data) {
             if (!data) {
                 return
             }
-            const tags = tagsSplit(data.tags)
-            // if(tags)
+            if (!data.tags) {
+                return
+            }
+            const tags = data.tags.split('$')
             this.setData({
                 tags
             })
         }
     },
 
-    /**
-     * 组件的方法列表
-     */
     methods: {
-        onItemTap(event) {
-            const pid = event.currentTarget.dataset.pid
-            this.triggerEvent("itemtap", {
-                pid
-            }, {
-                bubbles: true,
-                composed: true
-            })
-            wx.navigateTo({
-                url: `/pages/detail/detail?pid=${pid}`
+        onImgLoad(event) {
+            const {width, height} = event.detail
+            this.setData({
+                w:340,
+                h:340*height/width
             })
         },
-
-        onLoadImg(event) {
-            const {height, width} = event.detail
-            this.setData({
-                h: 340 * height / width,
-                w: 340
+        onItemTap(event){
+            const pid = event.currentTarget.dataset.pid
+            wx.navigateTo({
+                url:`/pages/detail/detail?pid=${pid}`
             })
         }
     }

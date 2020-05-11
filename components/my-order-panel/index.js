@@ -40,7 +40,6 @@ Component({
     methods: {
         onGotoMyOrder(event) {
             const key = event.currentTarget.dataset.key
-            console.log(event)
             wx.navigateTo({
                 url: `/pages/my-order/my-order?key=${key}`
             })

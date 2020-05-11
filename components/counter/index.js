@@ -1,4 +1,4 @@
-// components/counter/index.js
+
 import {Cart} from "../../models/cart";
 
 Component({
@@ -7,50 +7,43 @@ Component({
      */
     properties: {
         count: {
-            type:Number,
-            value:Cart.SKU_MIN_COUNT
+            type: Number,
+            value: Cart.SKU_MIN_COUNT
         },
-        max: Number
-    },
-
-    data: {
-        _max: Cart.SKU_MAX_COUNT,
-        _min: Cart.SKU_MIN_COUNT,
-    },
-
-    // attached() {
-    //     this.setData({
-    //        _max:2,
-    //         count:2
-    //     })
-    //
-    //     this.setData({
-    //         _max:1,
-    //         count:2
-    //     })
-    // },
-
-    observers: {
-        'max': function (max) {
-            // if (max == null) {
-            //     return
-            // }
-            if (max === 0) {
-                return
-            }
-            if (max <= Cart.SKU_MAX_COUNT && max > 0) {
-                this.setData({
-                    _max: max,
-                    count:this.properties.count
-                });
-            }
+        min: {
+            type: Number,
+            value: Cart.SKU_MIN_COUNT
+        },
+        max: {
+            type: Number,
+            value: Cart.SKU_MAX_COUNT
         }
     },
 
+    lifetimes:{
+        attached(){
+            this.setData({
+
+            })
+        }
+    },
+
+    observers:{
+        'count,min,max':function (count,min,max) {
+            console.log(count,min,max)
+        }
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {},
+
+    /**
+     * 组件的方法列表
+     */
     methods: {
         onOverStep(event) {
-            // const minOrMaxOut = event.detail;
-            console.error(event)
             const minOrMaxOut = event.detail.type
             if (minOrMaxOut == 'overflow_max') {
                 wx.showToast({
@@ -61,11 +54,11 @@ Component({
             }
             if (minOrMaxOut == 'overflow_min') {
                 wx.showToast({
-                    icon:"none",
-                    duration:3000,
-                    title:`最少需要购买${Cart.SKU_MIN_COUNT}件噢`
+                    icon: "none",
+                    duration: 3000,
+                    title: `最少需要购买${Cart.SKU_MIN_COUNT}件噢`
                 })
             }
-        },
+        }
     }
 })

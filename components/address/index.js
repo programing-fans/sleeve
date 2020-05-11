@@ -1,7 +1,5 @@
-// components/address/index.js
-import {promisic} from "../../utils/util";
-import {AuthAddress} from "../../core/enum";
 import {Address} from "../../models/address";
+import {AuthAddress} from "../../core/enum";
 
 Component({
     /**
@@ -13,72 +11,72 @@ Component({
      * 组件的初始数据
      */
     data: {
+        address: Object,
         hasChosen: false,
-        address: {},
-        showDialog:false
+        showDialog: false
     },
 
-    lifetimes:{
-      attached() {
-          const address = Address.getLocal()
-          if (address) {
-              this.setData({
-                  hasChosen:true,
-                  address
-              })
-              this.triggerEvent('address', {
-                  address
-              })
-          }
-      }
+    lifetimes: {
+        attached() {
+            const address = Address.getLocal()
+            if (address) {
+                this.setData({
+                    address,
+                    hasChosen: true
+                })
+                this.triggerEvent('address', {
+                    address
+                })
+            }
+        }
     },
 
+    /**
+     * 组件的方法列表
+     */
     methods: {
         async onChooseAddress(event) {
             const authStatus = await this.hasAuthorizedAddress()
-            if(authStatus === AuthAddress.DENY){
+            console.log(authStatus)
+            if (authStatus === AuthAddress.DENY) {
                 this.setData({
-                    showDialog:true
+                    showDialog: true
                 })
-                // wx.openSetting()
                 return
             }
             this.getUserAddress()
         },
 
-        onDialogConfirm(event){
+        onDialogConfirm(event) {
             wx.openSetting()
         },
 
-        // 获取地址并非一定要button授权
-        async getUserAddress(){
+        async getUserAddress() {
             let res;
             try {
-                res = await promisic(wx.chooseAddress)();
+                res = await wx.chooseAddress({})
             } catch (e) {
-                console.log(e)
+                console.error(e)
             }
-            console.log(res)
             if (res) {
                 this.setData({
-                    hasChosen: true,
-                    address: res
+                    address: res,
+                    hasChosen: true
                 })
                 Address.setLocal(res)
                 this.triggerEvent('address', {
-                    address:res
+                    address: res
                 })
             }
         },
 
         async hasAuthorizedAddress() {
-            const setting = await promisic(wx.getSetting)();
-            console.log(setting)
-            const addressSetting= setting.authSetting['scope.address']
-            if(addressSetting === undefined){
+            const setting = await wx.getSetting({})
+            const addressSetting = setting.authSetting['scope.address']
+            if (addressSetting === undefined) {
                 return AuthAddress.NOT_AUTH
             }
-            if(addressSetting === false){
+            if (addressSetting === false) {
                 return AuthAddress.DENY
             }
             if (addressSetting === true) {

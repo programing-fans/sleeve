@@ -1,4 +1,3 @@
-// pages/pay-success/pay-success.js
 Page({
 
     /**
@@ -13,9 +12,6 @@ Page({
      */
     onLoad: function (options) {
         this.data.oid = options.oid
-        // wx.lin.showStatusShow({
-        //     type: 'success'
-        // })
     },
 
     onGotoOrderDetail(event) {

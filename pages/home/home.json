@@ -2,8 +2,7 @@
   "usingComponents": {
     "s-category-grid": "/components/category-grid/index",
     "s-spu-scroll": "/components/spu-scroll/index",
-    "s-hot-list": "/components/hot-list/index"
-  },
-  "navigationBarTitleText": "风袖",
-  "enablePullDownRefresh": true
+    "s-hot-list": "/components/hot-list/index",
+    "l-water-flow":"/miniprogram_npm/lin-ui/water-flow/index"
+  }
 }

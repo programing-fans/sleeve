@@ -9,14 +9,13 @@ Component({
     },
 
     /**
-     * 组件初始数据
+     * 组件的初始数据
      */
     data: {},
 
-
     observers: {
-        'categories': function (categories) {
-            console.log(this.properties.bannerImg)
+        'categories': function (t) {
+            console.log(t)
         }
     },
 
@@ -25,9 +24,9 @@ Component({
      */
     methods: {
         onTapGridItem(event) {
-            const cid = event.currentTarget.dataset.cid
+            const id = event.detail.key
             this.triggerEvent('itemtap', {
-                cid
+                cid: id
             })
         }
     }

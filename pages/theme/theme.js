@@ -1,4 +1,3 @@
-// pages/theme/theme.js
 import {Theme} from "../../models/theme";
 
 Page({

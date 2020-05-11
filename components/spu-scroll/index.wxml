@@ -1,24 +1,24 @@
 <wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
-
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
+
 <view class="container l-class">
-    <image bind:tap="onMore" class="title" src="{{theme.title_img}}"></image>
-    <scroll-view enable-flex="{{true}}" class="scroll-view" scroll-x="{{true}}" scroll-y="{{false}}">
-        <block wx:for="{{spuList}}" wx:key="index">
-            <view hover-class="small-hover" hover-stay-time="1000" bind:tap="onTap" class="spu-container"
-                  data-spu-id="{{item.id}}">
-                <image mode="aspectFit" class="spu-img" src="{{item.img}}"></image>
-                <text class="spu-text">{{item.title.length>=8?s.substring(item.title,0, 7)+'...':item.title}}</text>
-                <l-price
-                        value="{{p.mainPrice(item.price, item.discount_price).price}}"
-                        unit="￥"
-                        value-bold="400"
-                        unit-bold="400"
-                        l-unit-class="price"
-                        l-value-class="price"
-                >
-                </l-price>
-            </view>
-        </block>
+    <image class="title" src="{{theme.title_img}}"></image>
+    <scroll-view scroll-x class="scroll-view">
+        <view class="inner">
+            <block wx:for="{{spuList}}" wx:key="index">
+                <view class="spu-container">
+                    <image class="spu-img" src="{{item.img}}"></image>
+                    <text class="spu-text">{{item.title.length>=8?s.substring(item.title,0,7)+'...':item.title}}</text>
+                    <l-price
+                            l-value-class="price-value"
+                            l-unit-class="price-unit"
+                            value="{{p.mainPrice(item.price,item.discount_price).price}}">
+                    </l-price>
+                </view>
+            </block>
+        </view>
     </scroll-view>
 </view>
+
+
+
