@@ -11,9 +11,6 @@
         <l-water-flow bind:item="onItemTap" generic:l-water-flow-item="s-spu-preview"></l-water-flow>
     </view>
 
-<!--    <view class="logo-container">-->
-<!--        <image class="logo" src="/imgs/logo.png"></image>-->
-<!--    </view>-->
     <view class="logo-container">
         <image class="logo" src="http://i2.sleeve.7yue.pro/logoxxx.png"></image>
     </view>

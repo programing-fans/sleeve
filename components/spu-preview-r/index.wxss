@@ -1,11 +1,8 @@
-/* components/spu-preview/index.wxss */
-/*@import "../wxss/sleeve.wxss";*/
-
 .container {
     width: 350rpx;
     display: flex;
     flex-direction: column;
-    box-shadow:0px 0px 8px 0px rgba(119,163,149,0.2);
+    box-shadow:0 0 8px 0 rgba(119,163,149,0.2);
     margin-bottom:18rpx;
     background-color: #ffffff;
 }
@@ -30,7 +27,6 @@
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    /*margin-bottom: 6rpx;*/
 }
 
 .subtitle {
